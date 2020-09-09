@@ -1,0 +1,103 @@
+<!doctype html>
+   <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Jquery Filter</title>
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        
+         
+         <script>
+          $(document).ready(function(){
+              $(".button").click(function(){
+                var name = $(this).attr("data-filter");  
+                  if(name == "all"){
+                      $(".filter").show("2000");
+                  }else{
+                      $(".filter").not("."+name).hide("2000");
+                      $(".filter").filter("."+name).show("2000");
+                      
+                  }
+              });
+              $(".navigation a").click(function(){
+                  $(this).addClass("active").siblings().removeClass("active")
+              })
+          });
+        
+        </script>
+        <style>
+            body{
+                font-family: sans-serif;
+                background-color: #efefef;
+            }
+            .navigation{
+                padding: 25px 0px;
+            }
+            .navigation a{
+                margin-right: 5px;
+                text-decoration: none;
+                border: 1px solid #ccc;
+                padding: 10px 25px;
+                border-radius: 50px;
+                color: #e74c3c;
+            }
+            .navigation a.active{
+                background-color: #e74c3c;
+                border-color: #e74c3c;
+                color:  #fff;
+            }
+            .ImageContainer div{
+                display: inline-block;
+            }
+            img{
+                margin: 5px;
+                width: 300px;
+                height: 250px;
+            }
+        
+        </style>
+       
+       
+    <body>
+      <div style="text-align: center;">
+          <div class="navigation">
+             <a href="#" data-filter="all" class="button active">All</a>
+             <a href="#" data-filter="one" class="button">one</a>
+             <a href="#" data-filter="two" class="button">two</a>
+             <a href="#" data-filter="three" class="button">Three</a>
+              
+          </div>
+          <div class="ImageContainer">
+             <div class="filter one">
+                 <img  src="img/cake-1.jpeg">
+             </div>
+              <div class="filter two">
+                 <img src="img/cake-2.jpeg">
+             </div>
+             <div class="filter three">
+                 <img src="img/cupcake-3.jpeg">
+             </div>
+             <div class="filter one">
+                 <img src="img/cake-1.jpeg">
+             </div>
+              <div class="filter two">
+                 <img src="img/cake-2.jpeg">
+             </div>
+             <div class="filter three">
+                 <img src="img/cupcake-3.jpeg">
+             </div>
+             <div class="filter three">
+                 <img src="img/cupcake-3.jpeg">
+             </div>
+             <div class="filter two">
+                 <img src="img/cake-2.jpeg">
+             </div>
+              <div class="filter one">
+                 <img src="img/cake-1.jpeg">
+             </div>
+             
+          </div>
+      </div>
+       
+    </body>
+    
+</html>

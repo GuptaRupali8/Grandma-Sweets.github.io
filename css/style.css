@@ -1,0 +1,327 @@
+/*These font will be used in project*/
+
+@import url("https://fonts.googleapis.com/css?family=Kaushan+Script");
+
+
+/*this is the custom property for colors so that every time we can use the name for a perticular color.*/
+:root {
+  --mainPink: #ef7998;
+  --mainYellow: rgb(249, 228, 148);
+  --mainWhite: #fff;
+  --mainBlack: #000;
+  --yellowTrans: rgba(136, 136, 136, 0.4);
+  --mainGrey: rgb(238, 238, 238);
+}
+
+body {
+  font-family: "Kaushan Script", cursive;
+  background: var(--mainWhite);
+  color: var(--mainBlack);
+}
+/*Header*/
+
+ 
+/*global style*/
+.btn-pink{
+    color: var(--mainPink)!important;
+    border-color: var(--mainPink)!important;
+}
+.btn-pink:hover{
+    color: var(--mainBlack)!important;
+    background: var(--mainPink)!important;
+}
+.btn-black{
+    color: var(--mainBlack)!important;
+    border-color: var(--mainBlack)!important;
+}
+.btn-black:hover{
+    color: var(--mainPink)!important;
+    background: var(--mainBlack)!important;
+}
+.treat-button{
+    font-family:"Kaushan Script", cursive;
+    font-size: 4vmin;
+    appearance: none;
+/*    background: linear-gradient(to bottom, 0, 0);*/
+    border: none;
+    color: #fff;
+    border-radius: 2em;
+    padding: .6em 1.5em;
+    overflow: hidden;
+    user-select: none;
+    cursor: pointer;
+    z-index: 1
+    box-shadow: 0 0 1em rgba(white, .2);
+    transition: transform .1s cubic-bezier(.5, 0, .5, 1), box-shadow .2s;
+    
+    &hover{
+         box-shadow: 0 0 2em rgba(white, .3);
+    }
+    outline: none;
+     &:active {
+    transform: scale(0.8) translateY(10%);
+    transition-timing-function: cubic-bezier(.5, 0, .5, 1);
+  }
+}
+.treat {
+  --scale-x: 0;
+  --scale-y: 0;
+  pointer-events: none;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: calc(50% - .5rem);
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vmin;
+  transform: 
+    translate(
+      calc( var(--x) * 1px ), 
+      calc( var(--y) * 1px )
+    ) 
+    translate(-50%, -50%);
+  pointer-events: none;
+  animation: 
+    treat-enter .1s ease-in backwards, 
+    treat-exit 300ms linear 
+    calc( (var(--lifetime, 3000) * 1ms) - 300ms) 
+    forwards;
+
+  @keyframes treat-enter {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes treat-exit {
+    to {
+      opacity: 0;
+    }
+  }
+  
+  .inner {
+    animation: inner-rotate .6s linear infinite;
+    transform: rotate( 
+      calc(-1turn * var(--direction) )
+    ); 
+    @keyframes inner-rotate {
+      to { 
+        transform: none;
+      } 
+    }
+  }
+}
+/*nav link*/
+
+
+.navbar-toggler{
+    outline: none !important;
+/*    to remove the outline of the element*/
+}
+
+.toggler-icon{
+    font-size: 2.5rem;
+    color: var(--mainPink);
+}
+
+.navbar {
+    position: fixed;
+    z-index: 300;
+/*    background-color: white;*/
+    background-color: black;
+    width: 100%;
+}
+.nav-link{
+    color: var(--mainPink);
+    transition: all 2s ease-in-out;
+    font-size: 1.5rem;
+}
+.nav-link:hover{
+/*    color: var(--mainBlack);*/
+    
+    color: var(--mainWhite);
+}
+/*
+ a:hover{
+    border-bottom: 2px solid  var(--mainPink);
+      transition: all 2s ease-in-out;
+}
+*/
+
+/*cart-style*/
+
+.cart-info__icon{
+    color: var(--mainPink);
+    cursor: pointer;
+}
+.cart-info{
+    border: 0.1rem solid var(--mainPink);
+    color: var(--mainPink);
+    border-radius: 0.25rem;
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+}
+
+.cart-info:hover{
+    background: var(--mainPink);
+    border-color: var(--mainPink);
+    color: var(--mainWhite);
+}
+.cart-info:hover .cart-info__icon{
+    color: var(--mainWhite);
+}
+.max-height{
+/*    min-height: calc(100vh - 76px);*/
+    min-height: 100vh;
+/*    background:linear-gradient(var(--yellowTrans),var(--yellowTrans)), url('../img/donuts-and-bagel.jpg');*/
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('../img/header.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.banner{
+    color: var(--mainWhite);
+    margin-top: -4rem;
+}
+.banner-title{
+    color:  var(--mainPink);;
+    font-size: 4rem;
+}
+.banner-link{
+    font-size: 1.5rem;
+    color: var(--mainWhite);
+    border: 0.2rem solid var(--mainBlack);
+}
+.banner-link:hover{
+    background: var(--mainBlack);
+    color: var(--mainPink);
+}
+
+/*about section*/
+.about-img__container{
+    position: relative;
+}
+.about-img__container::before{
+    content: '';
+    position: absolute;
+    top: -1.5rem;
+    left: -1.7rem;
+    width: 100%;
+    height: 100%;
+    outline: 0.5rem solid var(--mainYellow);
+    z-index: -1;
+    transition: all 1s linear;
+}
+.about-img__container:hover:before{
+    top: 0;
+    left: 0;
+}
+
+/*store*/
+.store{
+    background: var(--mainGrey);
+}
+.search-box{
+    background: var(--mainPink);
+    color: var(--mainBlack);
+}
+.single-item{
+    transition: all 0.3 linear;
+    }
+.single-item:hover{
+    box-shadow: 0 10px 15px rgb(0,0,0);
+}
+.img-container{
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.store-img{
+    transition: all 1s ease-in-out;
+}
+.img-container:hover .store-img{
+    transform: scale(1.2);
+}
+
+.store-item-icon{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0.75rem;
+    background: var(--mainYellow);
+    border-top-left-radius: 1rem;
+    transition: all 1s ease-in-out;
+    transform: translate(100%, 100%);
+}
+.img-container:hover .store-item-icon{
+    transform: translate(0, 0);
+}
+.store-item-icon:hover{
+    color: var(--mainWhite);
+}
+/*services*/
+.services{
+    color: var(--mainWhite);
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('../img/servicesBcg.jpeg')center/cover fixed no-repeat;
+}
+.service-title{
+    letter-spacing: 0.5rem;
+}
+.service-text{
+    word-spacing: 0.5rem;
+}
+/*footer*/
+
+.footer-title{
+    background: var(--mainBlack);
+}
+.footer-contact{
+    background: var(--mainGrey);
+}
+.footer-icon{
+/*    font-size: 1.5rem;*/
+    font-size: 2.1rem;
+    color: var(--mainPink);
+    transition: all 0.4 ease-in-out;
+}
+.footer-icon:hover{
+    color: var(--mainWhite);
+}
+
+/*cart*/
+
+.cart{
+    position: absolute;
+    min-height: 10rem;
+    background: rgba(255,255,255, 0.5);
+    top: 0;
+    right: 0;
+    transition: all 0.3s ease-in-out;
+   width: 0;
+    overflow: hidden;
+    }
+.show-cart{
+     width: 18rem;
+    padding: 2rem 1.5rem;
+    transform: rotateY(-360deg);
+}
+.cart-item{
+    transition: all 2s ease-in-out;
+}
+.cart-item-remove{
+    color: var(--mainPink);
+    transition: all 1s ease-in-out;
+}
+
+.cart-item-remove:hover{
+    transform: scale(1.1);
+    color: var(--mainBlack);
+}
+.cart-item-price{
+    font-size: 0.8rem;
+}
